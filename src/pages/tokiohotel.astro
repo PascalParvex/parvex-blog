@@ -1,5 +1,6 @@
 ---
-const pageTitle = "Links"; // Hier den Seitennamen eintragen
+import LogoSvg from '../assets/logo.svg';
+const pageTitle = "Tokio Hotel Archiv | Pascal Parvex";
 ---
 <html lang="de">
   <head>
@@ -8,7 +9,102 @@ const pageTitle = "Links"; // Hier den Seitennamen eintragen
     <title>{pageTitle}</title>
   </head>
   <body>
-    <h1>{pageTitle}</h1>
-    <p>Hier kommt später Ihr Text.</p>
+    
+    <nav class="nav-container">
+      <div class="logo-container">
+        <LogoSvg width={140} height={40} />
+      </div>
+      
+      <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">☰</label>
+        
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tokiohotel">Tokio Hotel</a></li>
+          <li><a href="/crypto">Crypto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content-wrapper">
+      <header class="page-header">
+        <h1>Tokio Hotel Archiv</h1>
+        <p class="subtitle">Hier entsteht in Kürze eine strukturierte Sammlung exklusiver Medien.</p>
+      </header>
+
+      <section class="placeholder-box">
+        <h2>Geplante Inhalte:</h2>
+        <ul>
+          <li><strong>High-Quality Scans:</strong> Seltene Zeitschriftenberichte, Poster und offizielles Pressematerial.</li>
+          <li><strong>AI-Upscales:</strong> Musikvideos und Konzertmitschnitte, hochskaliert auf moderne Auflösungen.</li>
+          <li><strong>Archiv-Links:</strong> Direkter Zugriff auf die pCloud-Verzeichnisse für schnellen Download.</li>
+        </ul>
+        <p class="notice">Die Masonry-Bildergalerie wird aktiviert, sobald die ersten Medienarchive aufbereitet sind.</p>
+      </section>
+    </main>
+    
   </body>
 </html>
+
+<style>
+  :global(html), :global(body) {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  body { 
+    max-width: 650px; 
+    margin: 0 auto; 
+    padding: 2rem 1.5rem; 
+    line-height: 1.6; 
+  }
+
+  /* Navigation (Identisch zur Startseite) */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2d2d2d;
+  }
+  .logo-container { width: 140px; height: 40px; display: block; }
+  .logo-container :global(svg) { width: 100%; height: 100%; display: block; }
+  .logo-container :global(svg path) { fill: #ffffff !important; }
+
+  .menu-wrapper { position: relative; }
+  .menu-toggle { display: none; }
+  .hamburger { font-size: 2rem; cursor: pointer; user-select: none; color: #ffffff; }
+  .nav-menu {
+    display: none; position: absolute; top: 100%; right: 0;
+    background: #1e1e1e; border: 1px solid #2d2d2d; border-radius: 8px;
+    padding: 1rem; list-style: none; margin: 0; min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 100;
+  }
+  .nav-menu li { margin: 0.8rem 0; }
+  .nav-menu a { color: #e0e0e0; text-decoration: none; font-weight: bold; display: block; }
+  .nav-menu a:hover { color: #4da6ff; }
+  .menu-toggle:checked ~ .nav-menu { display: block; }
+
+  /* Content & Placeholder */
+  .page-header { margin-bottom: 2.5rem; }
+  h1 { font-size: 2rem; color: #fff; margin: 0 0 0.5rem 0; }
+  .subtitle { color: #aaaaaa; font-size: 1rem; margin: 0; }
+
+  .placeholder-box {
+    background: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+  .placeholder-box h2 { font-size: 1.3rem; color: #fff; margin-top: 0; }
+  .placeholder-box ul { padding-left: 1.2rem; margin-bottom: 1.5rem; }
+  .placeholder-box li { margin-bottom: 0.5rem; color: #e0e0e0; }
+  .placeholder-box strong { color: #4da6ff; }
+  .notice { font-size: 0.9rem; color: #aaaaaa; font-style: italic; margin: 0; }
+</style>

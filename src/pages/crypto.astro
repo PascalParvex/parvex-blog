@@ -1,5 +1,14 @@
 ---
-const pageTitle = "Crypto";
+import LogoSvg from '../assets/logo.svg';
+const pageTitle = "Waves Blockchain Token | Pascal Parvex";
+
+// Ihre Token strukturiert in einem Array
+const tokens = [
+  { name: "eFranken", description: "Digitales, stabiles Token-Konzept mit Schweizer Bezug.", ticker: "EFRANKEN" },
+  { name: "eKaulitz", description: "Dediziertes Fan- und Community-Token-Projekt.", ticker: "EKAULITZ" },
+  { name: "KHADD", description: "Spezifisches Token-Asset für Medien- und Archivstrukturen.", ticker: "KHADD" },
+  { name: "Bitcoin Speed", description: "Auf Schnelligkeit optimiertes Transfer-Token auf der Waves-Blockchain.", ticker: "BTCS" }
+];
 ---
 <html lang="de">
   <head>
@@ -8,7 +17,131 @@ const pageTitle = "Crypto";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <h1>{pageTitle}</h1>
-    <p>In Arbeit...</p>
+    
+    <nav class="nav-container">
+      <div class="logo-container">
+        <LogoSvg width={140} height={40} />
+      </div>
+      
+      <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">☰</label>
+        
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tokiohotel">Tokio Hotel</a></li>
+          <li><a href="/crypto">Crypto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <header class="page-header">
+        <h1>Kryptowährungen & Token</h1>
+        <p class="subtitle">Eigene digitale Assets, erstellt auf der dezentralen <a href="https://waves.tech" target="_blank" rel="noopener" class="inline-link">Waves-Blockchain</a>.</p>
+      </header>
+
+      <div class="token-grid">
+        {tokens.map((token) => (
+          <div class="token-card">
+            <div class="token-header">
+              <span class="token-icon">🪙</span>
+              <h2>{token.name}</h2>
+            </div>
+            <span class="ticker-badge">{token.ticker}</span>
+            <p>{token.description}</p>
+          </div>
+        ))}
+      </div>
+    </main>
+    
   </body>
-</html>   
+</html>
+
+<style>
+  :global(html), :global(body) {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  body { 
+    max-width: 650px; 
+    margin: 0 auto; 
+    padding: 2rem 1.5rem; 
+    line-height: 1.6; 
+  }
+
+  /* Navigation (Einheitlicher Look) */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2d2d2d;
+  }
+  .logo-container { width: 140px; height: 40px; display: block; }
+  .logo-container :global(svg) { width: 100%; height: 100%; display: block; }
+  .logo-container :global(svg path) { fill: #ffffff !important; }
+
+  .menu-wrapper { position: relative; }
+  .menu-toggle { display: none; }
+  .hamburger { font-size: 2rem; cursor: pointer; user-select: none; color: #ffffff; }
+  .nav-menu {
+    display: none; position: absolute; top: 100%; right: 0;
+    background: #1e1e1e; border: 1px solid #2d2d2d; border-radius: 8px;
+    padding: 1rem; list-style: none; margin: 0; min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 100;
+  }
+  .nav-menu li { margin: 0.8rem 0; }
+  .nav-menu a { color: #e0e0e0; text-decoration: none; font-weight: bold; display: block; }
+  .nav-menu a:hover { color: #4da6ff; }
+  .menu-toggle:checked ~ .nav-menu { display: block; }
+
+  /* Content Header */
+  .page-header { margin-bottom: 2.5rem; }
+  h1 { font-size: 2rem; color: #fff; margin: 0 0 0.5rem 0; }
+  .subtitle { color: #aaaaaa; font-size: 1rem; margin: 0; }
+  .inline-link { color: #4da6ff; text-decoration: none; }
+  .inline-link:hover { text-decoration: underline; }
+
+  /* Token Grid Layout */
+  .token-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .token-card {
+    background: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .token-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .token-header h2 { font-size: 1.4rem; color: #fff; margin: 0; }
+  .token-icon { font-size: 1.5rem; }
+  
+  .ticker-badge {
+    display: inline-block;
+    background: #2d2d2d;
+    color: #4da6ff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .token-card p { margin: 0; color: #b0b0b0; font-size: 0.95rem; }
+</style>

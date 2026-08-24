@@ -1,112 +1,190 @@
 ---
 import { Image } from 'astro:assets';
-// Hier wird der Pfad zu Ihrem tatsächlichen Ordner korrigiert:
 import LogoSvg from '../assets/logo.svg';
 
-const pageTitle = "Pascal Parvex' Homepage";
+const pageTitle = "Pascal Parvex | Blog & Links";
 ---
-
 <html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    <style>
-      body { 
-        font-family: system-ui, -apple-system, sans-serif; 
-        max-width: 650px; 
-        margin: 3rem auto; 
-        padding: 0 1.5rem; 
-        line-height: 1.6; 
-        color: #222;
-        background-color: #fafafa;
-      }
-      .header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-      /* Stil für Ihr SVG-Logo */
-      .logo-container {
-        max-width: 180px;
-        margin: 0 auto 1rem auto;
-      }
-      .logo-container :global(svg) {
-        width: 100%;
-        height: auto;
-      }
-      h1 { font-size: 1.8rem; margin: 0; color: #111; font-weight: 800; }
-      .link-list { list-style: none; padding: 0; margin: 0; }
-      .link-list li { 
-        margin-bottom: 1.2rem; 
-        background: #ffffff;
-        padding: 1.2rem; 
-        border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        border: 1px solid #eaeaea;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .link-list li:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      }
-      .link-list a { 
-        display: block; 
-        font-size: 1.3rem; 
-        font-weight: bold; 
-        color: #0066cc; 
-        text-decoration: none; 
-      }
-      .link-list a:hover { text-decoration: underline; }
-      .description { font-size: 0.95rem; color: #555; margin-top: 0.3rem; }
-      
-      /* Optionale CSS-Klasse für optimierte Inhaltsbilder */
-      .content-image {
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-        margin-top: 1rem;
-      }
-    </style>
   </head>
   <body>
     
-    <header class="header">
-      <!-- Bindet das SVG direkt inline ein, um Ladezeit (HTTP-Request) zu sparen -->
-      <div class="logo-container">
-  <LogoSvg />
-</div>
-      <h1>{pageTitle}</h1>
-    </header>
-
-    <ul class="link-list">
-      <li>
-        <a href="https://e.pcloud.link/publink/show?code=kZQvNGZzwm1LqklajRGS35oze7PCf1OQQok" target="_blank" rel="noopener">
-          Tokio Hotel Videos
-        </a>
-        <div class="description">Exklusive Videosammlung</div>
-      </li>
-      <li>
-        <a href="https://e.pcloud.link/publink/show?code=kZvvNGZ8xFiRj6HRy4CnhOT3nDRzRllC5GX" target="_blank" rel="noopener">
-          Tokio Hotel Scans
-        </a>
-        <div class="description">Bildmaterial und Scans</div>
+    <nav class="nav-container">
+ <div class="logo-container">
+        <!-- Geben Sie hier die ungefähren Originalmaße Ihres Logos an (z. B. Breite 140) -->
+        <LogoSvg width={50} height={50} />
+      </div>
+      
+      <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">☰</label>
         
-        <!-- BEISPIEL: So fügen Sie ein vollautomatisch optimiertes Bild hinzu: -->
-        <!-- <Image src={meinBild} alt="Vorschau Scans" class="content-image" loading="lazy" /> -->
-      </li>
-      <li>
-        <a href="https://youtube.com/@parvex" target="_blank" rel="noopener">
-          YouTube (8K-AI-Upscales and more)
-        </a>
-        <div class="description">Der offizielle Kanal von Pascal Parvex</div>
-      </li>
-      <li>
-        <a href="https://www.tiktok.com/@pascalparvex" target="_blank" rel="noopener">
-          TikTok
-        </a>
-        <div class="description">Kurzvideos von Pascal Parvex</div>
-      </li>
-    </ul>
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tokiohotel">Tokio Hotel</a></li>
+          <li><a href="/crypto">Crypto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="blog-feed">
+      
+      <article class="post-card">
+        <h2 class="post-title">Willkommen auf Parvex.org</h2>
+        <div class="post-meta">Veröffentlicht am 24. August 2026</div>
+        <p class="post-text">
+          Hier entsteht meine neue, minimalistische und extrem schnelle Homepage. Hier verwalte ich wichtige Links, AI-Upscales und meine Sammlungen.
+        </p>
+        <div class="post-links">
+          <a href="https://youtube.com" target="_blank" rel="noopener">→ Mein YouTube Kanal (8K AI-Upscales)</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener">→ Mein TikTok Profil</a>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <h2 class="post-title">Exklusives Tokio Hotel Pressematerial</h2>
+        <div class="post-meta">Veröffentlicht am 24. August 2026</div>
+        <p class="post-text">
+          Ich habe neue hochauflösende Scans und seltene Videos in meine Cloud-Verzeichnisse hochgeladen.
+        </p>
+        <div class="post-links">
+          <a href="https://pcloud.link" target="_blank" rel="noopener">→ Videosammlung öffnen</a>
+          <a href="https://pcloud.link" target="_blank" rel="noopener">→ Bilder & Scans öffnen</a>
+        </div>
+      </article>
+
+    </main>
     
   </body>
 </html>
+
+<style>
+  /* Gekapseltes CSS, das garantiert geladen wird */
+  :global(html), :global(body) {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  body { 
+    max-width: 650px; 
+    margin: 0 auto; 
+    padding: 2rem 1.5rem; 
+    line-height: 1.6; 
+  }
+
+  /* Navigation */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2d2d2d;
+  }
+  
+  .logo-container { 
+    max-width: 140px; 
+    max-height: 50px;
+  }
+  .logo-container :global(svg) { 
+    width: 100%; 
+    height: auto; 
+  }
+  .logo-container :global(svg path) { 
+    fill: #ffffff !important; 
+  }
+
+  /* Robustes CSS-Hamburger Menü */
+  .menu-wrapper {
+    position: relative;
+  }
+  .menu-toggle { 
+    display: none; 
+  }
+  .hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    color: #ffffff;
+  }
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    padding: 1rem;
+    list-style: none;
+    margin: 0;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 100;
+  }
+  .nav-menu li { 
+    margin: 0.8rem 0; 
+  }
+  .nav-menu a { 
+    color: #e0e0e0; 
+    text-decoration: none; 
+    font-weight: bold; 
+    display: block;
+  }
+  .nav-menu a:hover { 
+    color: #4da6ff; 
+  }
+  
+  /* Blendet das Menü ein, wenn die Checkbox aktiv ist */
+  .menu-toggle:checked ~ .nav-menu { 
+    display: block; 
+  }
+
+  /* Blog Feed & Karten */
+  .blog-feed { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+  }
+  .post-card { 
+    background: #1e1e1e;
+    padding: 1.5rem; 
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+  .post-title { 
+    font-size: 1.6rem; 
+    margin: 0 0 0.5rem 0; 
+    color: #ffffff; 
+  }
+  .post-meta { 
+    font-size: 0.85rem; 
+    color: #aaaaaa; 
+    margin-bottom: 1rem; 
+  }
+  .post-text { 
+    color: #e0e0e0;
+    margin-bottom: 1rem; 
+  }
+  .post-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.6rem; 
+  }
+  .post-links a { 
+    color: #4da6ff; 
+    text-decoration: none; 
+    font-weight: bold; 
+  }
+  .post-links a:hover { 
+    text-decoration: underline; 
+  }
+</style>
