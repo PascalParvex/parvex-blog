@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 // Hier importieren Sie Ihr Logo und optionale Bilder aus dem neuen Ordner
-import logoSvg from '../images/logo.svg';
+import LogoSvg from '../images/logo.svg';
 // Beispiel für ein Hintergrund- oder Teaserbild:
 // import meinBild from '../images/beispiel.jpg';
 
@@ -73,7 +73,9 @@ const pageTitle = "Pascal Parvex | Links";
     
     <header class="header">
       <!-- Bindet das SVG direkt inline ein, um Ladezeit (HTTP-Request) zu sparen -->
-      <div class="logo-container" Fragment set:html={logoSvg} />
+      <div class="logo-container">
+  <LogoSvg />
+</div>
       <h1>{pageTitle}</h1>
     </header>
 
