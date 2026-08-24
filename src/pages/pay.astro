@@ -1,0 +1,166 @@
+---
+import LogoSvg from '../assets/logo.svg';
+const pageTitle = "Payment Information | Parvex.org";
+---
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content="Zahlungsinformationen und Kontaktdaten für Pascal Parvex - IBAN, PayPal und Kryptowährungen." />
+  </head>
+  <body>
+    
+    <nav class="nav-container">
+      <div class="logo-container">
+        <LogoSvg width={140} height={40} />
+      </div>
+      <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">☰</label>
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tokiohotel">Tokio Hotel</a></li>
+          <li><a href="/crypto">Crypto</a></li>
+          <li><a href="/pay">Pay</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <header class="page-header">
+        <h1>Payment Information</h1>
+        <p class="subtitle">Unterstützung, Zahlungen und geschäftliche Transaktionen direkt abwickeln.</p>
+      </header>
+
+      <div class="pay-grid">
+        <!-- Banküberweisung (Wire Transfer) -->
+        <section class="pay-card border-blue">
+          <h2>Wire Transfer Information</h2>
+          
+          <div class="address-block">
+            <strong>Payee-Address:</strong><br />
+            Pascal Parvex<br />
+            Baerholzstrasse 20<br />
+            5610 Wohlen<br />
+            Switzerland
+          </div>
+
+          <div class="bank-details">
+            <div class="detail-row">
+              <span class="label">IBAN:</span>
+              <code class="value">CH81 0878 1000 1919 7710 0</code>
+            </div>
+            <div class="detail-row">
+              <span class="label">BIC:</span>
+              <code class="value">SWQBCHZZXXX</code>
+            </div>
+            <div class="detail-row bank-address">
+              <span class="label">Bank:</span>
+              <span>
+                Swissquote Bank SA<br />
+                Chemin de la Crétaux 33<br />
+                Case postale 319<br />
+                1196 Gland
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- PayPal -->
+        <section class="pay-card">
+          <h2>PayPal</h2>
+          <div class="warning-box">
+            <strong>Important:</strong> If you use PayPal, make sure to send via the <em>“Send money to friends”</em> option, or I won't get the full amount due to transaction fees.
+          </div>
+        </section>
+
+        <!-- Kryptowährungen -->
+        <section class="pay-card">
+          <h2>Cryptocurrencies</h2>
+          <p>Zahlungen über dezentrale Netzwerke sind ebenfalls willkommen.</p>
+          <a href="/crypto" class="pay-link">→ Click here to send cryptocurrencies</a>
+        </section>
+
+        <!-- Kontakt & Erreichbarkeit -->
+        <section class="pay-card contact-section">
+          <h2>Contact & Communication</h2>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>E-Mail:</strong>
+              <a href="mailto:pascal@parvex.org">pascal@parvex.org</a>
+            </div>
+            <div class="contact-item">
+              <strong>Phone and WhatsApp:</strong>
+              <a href="tel:+41797360121">+41 79 736 01 21</a>
+            </div>
+            <div class="contact-item">
+              <strong>Write to:</strong>
+              <span>Pascal Parvex, Baerholzstrasse 20, 5610 Wohlen, Switzerland</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+  </body>
+</html>
+
+<style>
+  :global(html), :global(body) {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    margin: 0; padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  body { max-width: 650px; margin: 0 auto; padding: 2rem 1.5rem; line-height: 1.6; }
+
+  /* Navigation (Einheitlicher Look) */
+  .nav-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid #2d2d2d; }
+  .logo-container { width: 140px; height: 40px; display: block; }
+  .logo-container :global(svg) { width: 100%; height: 100%; display: block; }
+  .logo-container :global(svg path) { fill: #ffffff !important; }
+  .menu-wrapper { position: relative; }
+  .menu-toggle { display: none; }
+  .hamburger { font-size: 2rem; cursor: pointer; user-select: none; color: #ffffff; }
+  .nav-menu {
+    display: none; position: absolute; top: 100%; right: 0; background: #1e1e1e; border: 1px solid #2d2d2d;
+    border-radius: 8px; padding: 1rem; list-style: none; margin: 0; min-width: 150px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 100;
+  }
+  .nav-menu li { margin: 0.8rem 0; }
+  .nav-menu a { color: #e0e0e0; text-decoration: none; font-weight: bold; display: block; }
+  .nav-menu a:hover { color: #4da6ff; }
+  .menu-toggle:checked ~ .nav-menu { display: block; }
+
+  /* Content Header */
+  .page-header { margin-bottom: 2.5rem; }
+  h1 { font-size: 2rem; color: #fff; margin: 0 0 0.5rem 0; }
+  .subtitle { color: #aaaaaa; font-size: 1rem; margin: 0; }
+
+  /* Pay Cards */
+  .pay-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .pay-card { background: #1e1e1e; border: 1px solid #2d2d2d; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+  .pay-card h2 { font-size: 1.4rem; color: #fff; margin-top: 0; margin-bottom: 1rem; }
+  .border-blue { border-left: 4px solid #4da6ff; }
+
+  .address-block { background: #151515; padding: 1rem; border-radius: 6px; border: 1px solid #252525; color: #d0d0d0; margin-bottom: 1rem; }
+  
+  .bank-details { background: #151515; padding: 1rem; border-radius: 6px; border: 1px solid #252525; display: flex; flex-direction: column; gap: 0.75rem; }
+  .detail-row { display: flex; flex-direction: column; gap: 0.25rem; }
+  .detail-row .label { font-size: 0.8rem; color: #4da6ff; font-weight: bold; text-transform: uppercase; }
+  .value { font-family: monospace; font-size: 1.1rem; color: #fff; letter-spacing: 0.5px; }
+  .bank-address { color: #d0d0d0; }
+
+  .warning-box { background: rgba(255, 165, 0, 0.1); border-left: 4px solid orange; padding: 1rem; border-radius: 6px; color: #e0e0e0; }
+  .pay-link { color: #4da6ff; text-decoration: none; font-weight: bold; display: inline-block; }
+  .pay-link:hover { text-decoration: underline; }
+
+  /* Kontakt Sektion */
+  .contact-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .contact-item strong { color: #4da6ff; font-size: 0.9rem; }
+  .contact-item a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.05rem; }
+  .contact-item a:hover { color: #4da6ff; text-decoration: underline; }
+  .contact-item span { color: #d0d0d0; }
+</style>
